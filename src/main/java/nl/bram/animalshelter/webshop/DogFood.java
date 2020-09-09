@@ -14,7 +14,7 @@ public class DogFood implements ISellable {
     // GETTERS AND SETTERS
 
     public String getName() {
-        return null;
+        return name;
     }
     
     private void setName(String name) {
@@ -22,7 +22,7 @@ public class DogFood implements ISellable {
     }
 
     public Float getPrice() {
-        return null;
+        return price;
     }
     
     private void setPrice(Float price) {

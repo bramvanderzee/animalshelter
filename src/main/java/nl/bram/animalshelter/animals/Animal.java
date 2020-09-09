@@ -5,7 +5,6 @@ import java.time.LocalDateTime;
 
 public abstract class Animal implements ISellable {
     private String name;
-    private Float price;
     private Gender gender;
     private Reserver reservedBy;
     
@@ -30,7 +29,7 @@ public abstract class Animal implements ISellable {
         {
             reserved = String.format("reserved by %s", this.getReservedBy().getName());
         }
-        return String.format("%s, %s, %s", this.getName(), this.getGender(), reserved);
+        return String.format("%s, %s, %s, %s", this.getName(), this.getGender(), this.getPrice(), reserved);
     }
 
     // GETTERS AND SETTERS
@@ -41,10 +40,6 @@ public abstract class Animal implements ISellable {
 
     private void setName(String name) {
         this.name = name;
-    }
-
-    public Float getPrice() {
-        return this.price;
     }
 
     public Gender getGender() {

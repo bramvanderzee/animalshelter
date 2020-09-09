@@ -6,9 +6,14 @@ import java.time.temporal.ChronoUnit;
 
 public class Dog extends Animal {
     private LocalDateTime lastWalk;
+    private static Integer numberOfDogs = -1;
+    private final Float BEGINPRICE = 500F;
+    private final Float MINIMUMPRICE = 50F;
+    private final Float DISCOUNT = 50F;
 
     public Dog(String name, Gender gender) {
         super(name, gender);
+        numberOfDogs += 1;
     }
 
     public void walk() {
@@ -29,6 +34,17 @@ public class Dog extends Animal {
 
     private void setLastWalk(LocalDateTime dateTime) {
         this.lastWalk = dateTime;
+    }
+
+    public Float getPrice() {
+        Float discount = (float)numberOfDogs * this.DISCOUNT;
+
+        Float price = this.BEGINPRICE - discount;
+        if(price < this.MINIMUMPRICE) {
+            return this.MINIMUMPRICE;
+        } else {
+            return price;
+        }
     }
 
     public boolean needsWalk() {
