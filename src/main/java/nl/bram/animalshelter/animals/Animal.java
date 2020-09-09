@@ -1,20 +1,22 @@
 package nl.bram.animalshelter.animals;
 
+import nl.bram.animalshelter.interfaces.ISellable;
 import java.time.LocalDateTime;
 
-public class Animal {
-    public String name;
-    public Gender gender;
-    public Reserver reservedBy;
+public abstract class Animal implements ISellable {
+    private String name;
+    private Float price;
+    private Gender gender;
+    private Reserver reservedBy;
     
     public Animal(String name, Gender gender) {
-        setName(name);
-        setGender(gender);
+        this.setName(name);
+        this.setGender(gender);
     }
 
     public boolean Reserve(String reservedBy) {
         if(this.reservedBy == null) {
-            setReservedBy(new Reserver(reservedBy, LocalDateTime.now()));
+            this.setReservedBy(new Reserver(reservedBy, LocalDateTime.now()));
             return true;
         } else {
             return false;
@@ -24,11 +26,11 @@ public class Animal {
     @Override
     public String toString() {
         String reserved = "not reserved";
-        if (getReservedBy() != null)
+        if(this.getReservedBy() != null)
         {
-            reserved = String.format("reserved by %s", getReservedBy().name);
+            reserved = String.format("reserved by %s", this.getReservedBy().getName());
         }
-        return String.format("%s, %s, %s", getName(), getGender(), reserved);
+        return String.format("%s, %s, %s", this.getName(), this.getGender(), reserved);
     }
 
     // GETTERS AND SETTERS
@@ -39,6 +41,10 @@ public class Animal {
 
     private void setName(String name) {
         this.name = name;
+    }
+
+    public Float getPrice() {
+        return this.price;
     }
 
     public Gender getGender() {

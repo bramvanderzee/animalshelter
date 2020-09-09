@@ -1,7 +1,7 @@
 package nl.bram.animalshelter.animals;
 
 public class Cat extends Animal {
-    public String badHabits;
+    private String badHabits;
 
     public Cat(String name, Gender gender, String badHabits) {
         super(name, gender);

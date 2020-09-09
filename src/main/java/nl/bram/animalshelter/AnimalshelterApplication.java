@@ -13,9 +13,9 @@ public class AnimalshelterApplication {
 		dog.walk();
 
 		Cat cat = new Cat("Siora", Gender.FEMALE, "perfectionistic");
+		cat.Reserve("Rob");
 
 		System.out.println(dog.toString());
 		System.out.println(cat.toString());
 	}
-
 }
