@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 public class Animal {
     public String name;
     public Gender gender;
-    public Reservor reservedBy;
+    public Reserver reservedBy;
     
     public Animal(String name, Gender gender) {
         setName(name);
@@ -14,7 +14,7 @@ public class Animal {
 
     public boolean Reserve(String reservedBy) {
         if(this.reservedBy == null) {
-            setReservedBy(new Reservor(reservedBy, LocalDateTime.now()));
+            setReservedBy(new Reserver(reservedBy, LocalDateTime.now()));
             return true;
         } else {
             return false;
@@ -49,11 +49,11 @@ public class Animal {
         this.gender = gender;
     }
  
-    public Reservor getReservedBy() {
+    public Reserver getReservedBy() {
         return this.reservedBy;
     }
 
-    private void setReservedBy(Reservor reservedBy) {
+    private void setReservedBy(Reserver reservedBy) {
         this.reservedBy = reservedBy;
     }
 }

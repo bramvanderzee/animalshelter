@@ -2,11 +2,11 @@ package nl.bram.animalshelter.animals;
 
 import java.time.LocalDateTime;
 
-public class Reservor {
+public class Reserver {
     public String name;
     public LocalDateTime reservedAt;
 
-    public Reservor(String name, LocalDateTime reservedAt) {
+    public Reserver(String name, LocalDateTime reservedAt) {
         setName(name);
         setReservedAt(reservedAt);
     }
