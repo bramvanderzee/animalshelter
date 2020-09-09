@@ -5,11 +5,14 @@ import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 
 public class Dog extends Animal {
-    public LocalDateTime lastWalk;
-    public boolean needsWalk;
+    private LocalDateTime lastWalk;
 
     public Dog(String name, Gender gender) {
         super(name, gender);
+    }
+
+    public void walk() {
+        setLastWalk(LocalDateTime.now());
     }
 
     @Override
@@ -24,8 +27,12 @@ public class Dog extends Animal {
         return this.lastWalk;
     }
 
-    public boolean isNeedsWalk() {
-        if(ChronoUnit.DAYS.between(lastWalk, LocalDateTime.now()) > 0L) {
+    private void setLastWalk(LocalDateTime dateTime) {
+        this.lastWalk = dateTime;
+    }
+
+    public boolean needsWalk() {
+        if(ChronoUnit.DAYS.between(getLastWalk(), LocalDateTime.now()) > 0L) {
             return true;
         } else {
             return false;
