@@ -11,7 +11,11 @@ public class AnimalshelterApplication {
 		SpringApplication.run(AnimalshelterApplication.class, args);
 		Dog dog = new Dog("Joeri", Gender.MALE);
 		dog.walk();
+
+		Cat cat = new Cat("Siora", Gender.FEMALE, "perfectionistic");
+
 		System.out.println(dog.toString());
+		System.out.println(cat.toString());
 	}
 
 }
